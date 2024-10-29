@@ -1,0 +1,139 @@
+/* General reset and styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+/* Body styling */
+body {
+  line-height: 1.7;
+  background-color: #f4f4f9;
+  padding: 20px;
+}
+
+/* Header styling */
+header {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #ddd;
+}
+
+header h1 {
+  font-size: 2.2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #666;
+}
+
+/* Topic container styling */
+.topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Individual topic link styling */
+.topics a {
+  display: block;
+  background-color: #e3f2fd;
+  color: #0277bd;
+  padding: 15px;
+  font-size: 1.1em;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+  font-weight: bold;
+}
+
+.topics a:hover {
+  background-color: #0277bd;
+  color: #fff;
+}
+
+/* Content section styling */
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+section#content {
+  margin-top: 20px;
+}
+
+#content-text {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Button styling */
+#readAloudButton {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #0288d1;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#readAloudButton:hover {
+  background-color: #026c9e;
+}
+
+/* Quote and highlight styles */
+blockquote {
+  font-style: italic;
+  background-color: #f9f9f9;
+  border-left: 4px solid #0277bd;
+  margin: 20px 0;
+  padding: 10px 20px;
+  color: #444;
+}
+
+.highlight {
+  background-color: #fff3cd;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.8em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+
+  .topics a {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  #readAloudButton {
+    width: 100%;
+  }
+}
