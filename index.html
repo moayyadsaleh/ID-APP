@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instructional Design Learning App</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -35,6 +33,18 @@
       main {
         padding: 20px;
       }
+      #search-bar {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+      }
+      #search-input {
+        width: 70%;
+        padding: 10px;
+        font-size: 1em;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
       #content-text {
         max-width: 700px;
         margin: 0 auto;
@@ -42,30 +52,6 @@
         background-color: #fff;
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-      #content-text p {
-        margin-bottom: 15px;
-      }
-      #content-text strong {
-        color: #4a90e2;
-      }
-      button {
-        background-color: #4a90e2;
-        color: #fff;
-        padding: 10px 15px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 15px;
-      }
-      button:hover {
-        background-color: #3a78c2;
-      }
-      .section-title {
-        font-size: 1.2em;
-        font-weight: bold;
-        margin-top: 20px;
-        color: #4a90e2;
       }
       .topics a {
         display: block;
@@ -80,14 +66,28 @@
       .topics a:hover {
         background-color: #f0f0f5;
       }
+      .hidden {
+        display: none;
+      }
     </style>
+  </head>
+  <body>
     <header>
       <h1>Instructional Design Learning App</h1>
       <p>Select a topic to start learning:</p>
     </header>
     <main>
-      <div class="topics">
-        <!-- Alphabetized and structured list of topics -->
+      <!-- Search bar -->
+      <div id="search-bar">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search topics..."
+          onkeyup="filterTopics()"
+        />
+      </div>
+      <!-- Topic links -->
+      <div class="topics" id="topics-list">
         <a href="ADDIE-model.html">ADDIE Model</a>
         <a href="Adaptive Learning.html">Adaptive Learning</a>
         <a href="Action-Mapping-by-Cathy-Moore.html"
@@ -96,12 +96,10 @@
         <a href="Active-Learning-and-Engagement-Strategies.html"
           >Active Learning and Engagement Strategies</a
         >
-
-        <a href="ARCS Motivation Model.html">ARCS Motivation Model </a>
-        <a href="ADDIE Paired with Phillips ROI Model.html">
-          ADDIE Paired with Phillips ROI Model
-        </a>
-
+        <a href="ARCS Motivation Model.html">ARCS Motivation Model</a>
+        <a href="ADDIE Paired with Phillips ROI Model.html"
+          >ADDIE Paired with Phillips ROI Model</a
+        >
         <a href="adult-learning.html">Adult Learning Theories</a>
         <a href="All About Activities.html">All About Activities</a>
         <a href="Anderson’s Model of Learning Evaluation.html"
@@ -114,8 +112,8 @@
           >Best Practices of Instructional Design</a
         >
         <a href="Brinkerhoff’s Success Case Method in Instructional Design.html"
-          >Brinkerhoff’s Success Case Method in Instructional Design
-        </a>
+          >Brinkerhoff’s Success Case Method in Instructional Design</a
+        >
         <a href="cognitive-learning-theory.html">Cognitive Learning Theory</a>
         <a href="create-engaging-and-interactive-learning-experiences.html"
           >Creating Engaging and Interactive Learning Experiences</a
@@ -170,9 +168,24 @@
         <a href="SUCCESS Model in Instructional Design.html"
           >SUCCESS Model in Instructional Design</a
         >
-
         <a href="xapi.html">XAPI</a>
       </div>
     </main>
+    <script>
+      function filterTopics() {
+        const input = document.getElementById("search-input");
+        const filter = input.value.toLowerCase();
+        const topics = document
+          .getElementById("topics-list")
+          .getElementsByTagName("a");
+
+        for (const topic of topics) {
+          const text = topic.textContent || topic.innerText;
+          topic.style.display = text.toLowerCase().includes(filter)
+            ? ""
+            : "none";
+        }
+      }
+    </script>
   </body>
 </html>
